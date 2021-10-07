@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $("#hae").click(function () {
+                    let searchWord = document.getElementById("fi").value;
+                    //alert("Heataan sanaa: " + searchWord);
+
+                    $.get( "http://localhost:8080/words/" + searchWord, function( data ) {
+                        $( ".result" ).html( data );
+                        alert("Vastaus: '" + data[0].en + "'");
+                    }, "json"); 
+                });
+            });
+        </script>
+	</head>
+
+	<body>
+		<ul id="bar">
+            <li>
+                <a href="./tallennus.html">Tallenna sana</a>
+            </li>
+            <li>
+                <a href="./hakeminen.html">Hae sana</a>
+            </li>
+		</ul>
+
+        <h1>HUOM! Jos ei tule alert:ia ensimmäisellä yrittämällä, niin kokeile uudestaa.</h1>
+        <h2>Jostakin syystä sivun lataaminen aiheuttaa hämminkiä</h2>
+
+    	<form>
+            <input type="text" id="fi">
+            <button id="hae">Hae</button>
+        </form>
+	</body>
+</html>

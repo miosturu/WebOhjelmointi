@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+            $(document).ready(function () {
+                $("#tallenna").click(function () {
+                    // Tee ensin Objekti, joka lähetetään
+
+                    const outGoingObj = {
+                        fi: document.getElementById("fi").value,
+                        en: document.getElementById("en").value
+                    };
+
+                    $.post("http://localhost:8080/words/", outGoingObj)
+
+                    alert("Tallennettiin tieto");
+
+                });
+            });
+		</script>
+	</head>
+
+	<body>
+		<ul id="bar">
+            <li>
+                <a href="./tallennus.html">Tallenna sana</a>
+            </li>
+            <li>
+                <a href="./hakeminen.html">Hae sana</a>
+            </li>
+		</ul>
+
+    	<form>
+            <input type="text" id="fi">
+            <input type="text" id="en">
+            <button id="tallenna">Tallenna</button>
+        </form>
+	</body>
+</html>
