@@ -1,5 +1,6 @@
 export default (state, action) => {
   const { payload, type } = action;
+
   switch (type) {
     case "GET_TIEDOT":
       return {
@@ -24,7 +25,7 @@ export default (state, action) => {
     case "EDIT_TIETO":
       return {
         ...state,
-        tiedot: state.tiedot.map((tiedot) =>
+        tiedot: state.tiedot.map((tieto) =>
           tieto.id === action.payload.id
             ? (tieto.id = action.payload.id)
             : tieto

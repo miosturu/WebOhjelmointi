@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useReducer } from "react";
-import UrheiliatTiedotContext from "./UrheilijatTiedotContext";
+import UrheilijatTiedotContext from "./UrheilijatTiedotContext";
 import AppReducer from "./AppReducer";
 import { GET_TIEDOT } from "./types";
 
@@ -32,7 +32,7 @@ const GlobalState = (props) => {
       let sql = `http://localhost:3030/urheilijat/${id}`;
       let res = await axios.get(sql);
       console.log("GET_TIETO");
-      dispatch({ type: GET_TIETO, payload: res.data });
+      dispatch({ type: "GET_TIETO", payload: res.data });
     } catch (err) {
       console.log("Virhe: " + err);
     }
@@ -44,9 +44,11 @@ const GlobalState = (props) => {
   const setTiedot = async (uusiTieto) => {
     console.log("Lisätään uutta tietoa");
 
+    console.log("Uusi tieto (GlobalState.js): " + uusiTieto);
+
     try {
       const res = await axios
-        .post(`http://localhost:3030/lisaa`, uusiTieto)
+        .post("http://localhost:3030/lisaa", uusiTieto)
         .then((res) => {
           dispatch({ type: "ADD_TIETO", payload: res.data });
           console.log("Data: " + res.data);
@@ -65,7 +67,7 @@ const GlobalState = (props) => {
         .post(`http://localhost:3030/urheilijat/muokkaa/${id}`, paivitettyTieto)
         .then((res) => {
           dispatch({ type: "EDIT_TIETO", payload: res.data });
-          console.log("Data: " + data);
+          //console.log("Data: " + data);
         });
     } catch (err) {
       console.log("Virhe: " + err);
@@ -77,8 +79,8 @@ const GlobalState = (props) => {
       let sql = "http://localhost:3030/urheilijat/" + id["id"];
 
       const res = await axios.delete(sql).then((res) => {
-        dispatch({ type: DELETE_TIETO, payload: id["id"] });
-        console.log("Data: " + data);
+        dispatch({ type: "DELETE_TIETO", payload: id["id"] });
+        //console.log("Data: " + data);
       });
     } catch (err) {
       console.log("Virhe: " + err);
@@ -86,7 +88,7 @@ const GlobalState = (props) => {
   };
 
   return (
-    <UrheiliatTiedotContext.Provider
+    <UrheilijatTiedotContext.Provider
       value={{
         tiedot: state.tiedot,
         getTiedot,
@@ -97,7 +99,7 @@ const GlobalState = (props) => {
       }}
     >
       {props.children}
-    </UrheiliatTiedotContext.Provider>
+    </UrheilijatTiedotContext.Provider>
   );
 };
 

@@ -1,32 +1,30 @@
 import UrheilijaTiedot from "./UrheilijaTiedot";
-import React, { Component } from "react";
-import { Consumer } from "../contex";
+import React, { useContext, useEffect } from "react";
+import urheilijatTiedotContext from "./context/UrheilijatTiedotContext";
 
-export default class UrheilijatTiedot extends Component {
-  constructor() {
-    super();
-    this.state = {
-      tiedot: [],
-    };
-  }
+const UrheilijatTiedot = () => {
+  const UrheilijatTiedotContext = useContext(urheilijatTiedotContext);
 
-  render() {
-    return (
-      <Consumer>
-        {(value) => {
-          const { tiedot } = value;
-          return (
-            <div>
-              <h1 className="display-4 mb-2">
-                <span className="text-danger">Urheilijat</span>
-              </h1>
-              {tiedot.map((tieto) => (
-                <UrheilijaTiedot key={tieto.id} tieto={tieto} />
-              ))}
-            </div>
-          );
-        }}
-      </Consumer>
-    );
-  }
-}
+  useEffect(() => {
+    UrheilijatTiedotContext.getTiedot();
+  }, []);
+
+  return (
+    <>
+      <h1 className="display-4 mb-2">
+        <span className="text-danger">Tiedot urheilijoista</span>
+      </h1>
+      <React.Fragment>
+        {UrheilijatTiedotContext.tiedot.length
+          ? UrheilijatTiedotContext.tiedot.map((tieto) => (
+              <UrheilijaTiedot
+                key={tieto.id}
+                UrheilijaTiedot={UrheilijaTiedot}
+              />
+            ))
+          : null}
+      </React.Fragment>
+    </>
+  );
+};
+export default UrheilijatTiedot;

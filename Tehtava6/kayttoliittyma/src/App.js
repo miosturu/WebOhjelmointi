@@ -2,7 +2,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import UrheilijatTiedot from "./components/UrheilijatTiedot";
 import Ylatunniste from "./components/Ylatunniste";
-import Provider from "./contex";
 import LisaaUrheilijaTiedot from "./components/LisaaUrheilijaTiedot";
 import {
   BrowserRouter as Router,
@@ -12,10 +11,11 @@ import {
 } from "react-router-dom";
 import Tietoa from "./components/pages/Tietoa";
 import MuokkaaUrhelijaTiedot from "./components/MuokkaaUrheilijaTiedot";
+import GlobalState from "./components/context/GlobalState";
 
 function App() {
   return (
-    <Provider>
+    <GlobalState>
       <Router>
         <div className="App">
           <Ylatunniste tekija="Mikko Turunen" />
@@ -32,10 +32,8 @@ function App() {
           </div>
         </div>
       </Router>
-    </Provider>
+    </GlobalState>
   );
 }
-
-// TODO: Keskiviikkona, jatka diassa 67, korjaa urheilijan lisääminen (dia 58)
 
 export default App;
