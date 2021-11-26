@@ -18,9 +18,6 @@ const GlobalState = (props) => {
     try {
       let res = await axios.get("http://localhost:3030/urheilijat");
       let { data } = res;
-
-      console.log("Data:" + data);
-
       dispatch({ type: GET_TIEDOT, payload: data });
     } catch (err) {
       console.log("Virhe: " + err);
@@ -67,7 +64,7 @@ const GlobalState = (props) => {
   const setTieto = async (id, paivitettyTieto) => {
     try {
       const res = await axios
-        .post(`http://localhost:3030/urheilijat/muokkaa/${id}`, paivitettyTieto)
+        .put(`http://localhost:3030/urheilijat/muokkaa/${id}`, paivitettyTieto)
         .then((res) => {
           dispatch({ type: "EDIT_TIETO", payload: res.data });
           //console.log("Data: " + data);
@@ -77,7 +74,7 @@ const GlobalState = (props) => {
     }
   };
 
-  const poistaTieto = async (id) => {
+  const deleteTieto = async (id) => {
     try {
       let sql = "http://localhost:3030/urheilijat/" + id["id"];
 
@@ -98,7 +95,7 @@ const GlobalState = (props) => {
         getTieto,
         setTiedot,
         setTieto,
-        poistaTieto,
+        deleteTieto,
       }}
     >
       {props.children}

@@ -5,21 +5,19 @@ import urheilijatTiedotContext from "../context/UrheilijatTiedotContext";
 const UrheilijatTiedot = () => {
   const UrheilijatTiedotContext = useContext(urheilijatTiedotContext);
 
-  console.log(UrheilijatTiedotContext);
   useEffect(() => {
     UrheilijatTiedotContext.getTiedot();
-    console.log(UrheilijatTiedotContext);
   }, []);
 
   return (
     <>
       <h1 className="display-4 mb-2">
-        <span className="text-danger">Tiedot urheilijasta</span>
+        <span className="text-danger">Tiedot urheilijoista</span>
       </h1>
       <React.Fragment>
         {UrheilijatTiedotContext.tiedot.length
           ? UrheilijatTiedotContext.tiedot.map((tieto) => (
-              <UrheilijaTiedot key={tieto.id} urheilijaTiedot={tieto} />
+              <UrheilijaTiedot key={tieto.id} tieto={tieto} />
             ))
           : null}
       </React.Fragment>

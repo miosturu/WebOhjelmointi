@@ -11,7 +11,7 @@ const UrheilijaTiedot = (props) => {
   const [naytaTieto, setNaytaTieto] = useState(false);
 
   const onDeleteClick = (id) => {
-    UrheilijatTiedotContext.deleteTiedot(id);
+    UrheilijatTiedotContext.deleteTieto(id);
     window.location.reload();
     history("/");
   };
@@ -39,8 +39,8 @@ const UrheilijaTiedot = (props) => {
       <button className="button_right" onClick={onShowClick.bind(this)}>
         ...
       </button>
-      <div class="text-right">
-        <div class="btn-group mr-2" role="group" aria-label="Second group">
+      <div className="text-right">
+        <div className="btn-group mr-2" role="group" aria-label="Second group">
           <button
             className="button_right"
             onClick={onDeleteClick.bind(this, { id })}
@@ -55,12 +55,24 @@ const UrheilijaTiedot = (props) => {
       </div>
       {naytaTieto ? (
         <ul className="list-group">
-          <li className="list-group-item">ID: {id}</li>
-          <li className="list-group-item">Syntymävuosi: {syntymavuosi}</li>
-          <li className="list-group-item">Paino: {paino} kg</li>
-          <li className="list-group-item">Linkki kuvaan: {linkki_kuvaan}</li>
-          <li className="list-group-item">Laji: {laji}</li>
-          <li className="list-group-item">Saavutukset: {saavutukset}</li>
+          <li className="list-group-item" key="id">
+            ID: {id}
+          </li>
+          <li className="list-group-item" key="syntymavuosi">
+            Syntymävuosi: {syntymavuosi}
+          </li>
+          <li className="list-group-item" key="paino">
+            Paino: {paino} kg
+          </li>
+          <li className="list-group-item" key="linkki_kuvaan">
+            Linkki kuvaan: {linkki_kuvaan}
+          </li>
+          <li className="list-group-item" key="laji">
+            Laji: {laji}
+          </li>
+          <li className="list-group-item" key="saavutukset">
+            Saavutukset: {saavutukset}
+          </li>
         </ul>
       ) : null}
     </div>

@@ -12,6 +12,7 @@ import {
 import Tietoa from "./components/pages/Tietoa";
 import MuokkaaUrhelijaTiedot from "./components/MuokkaaUrheilijaTiedot";
 import GlobalState from "./context/GlobalState";
+import TunnetutOngelmat from "./components/pages/TunnetutOngelmat";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <Route path="/" element={<UrheilijatTiedot />} />
               <Route path="/lisaa" element={<LisaaUrheilijaTiedot />} />
               <Route path="/tietoa" element={<Tietoa />} />
+              <Route path="/ongelmat" element={<TunnetutOngelmat />} />
               <Route
                 path="/urheilijat/muokkaa/:id"
                 element={<MuokkaaUrhelijaTiedot />}

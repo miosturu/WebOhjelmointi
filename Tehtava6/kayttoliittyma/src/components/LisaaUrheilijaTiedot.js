@@ -50,6 +50,7 @@ export default function LisaaUrheilijaTiedot() {
               value={etunimi}
               onChange={(event) => setEtunimi(event.target.value)}
               error={virheet.etunimi}
+              required
             />
 
             <label htmlFor="sukunimi">Sukunimi</label>
@@ -62,6 +63,7 @@ export default function LisaaUrheilijaTiedot() {
               value={sukunimi}
               onChange={(event) => setSukunimi(event.target.value)}
               error={virheet.sukunimi}
+              required
             />
 
             <label htmlFor="kutsumanimi">Kutsumanimi</label>
@@ -74,6 +76,7 @@ export default function LisaaUrheilijaTiedot() {
               value={kutsumanimi}
               onChange={(event) => setKutsumanimi(event.target.value)}
               error={virheet.kutsumanimi}
+              required
             />
 
             <label htmlFor="syntymavuosi">Syntymävuosi</label>
@@ -86,6 +89,7 @@ export default function LisaaUrheilijaTiedot() {
               value={syntymavuosi}
               onChange={(event) => setSyntymavuosi(event.target.value)}
               error={virheet.syntymavuosi}
+              required
             />
 
             <label htmlFor="paino">Paino (kg)</label>
@@ -98,6 +102,7 @@ export default function LisaaUrheilijaTiedot() {
               value={paino}
               onChange={(event) => setPaino(event.target.value)}
               error={virheet.paino}
+              required
             />
 
             <label htmlFor="linkki_kuvaan">Linkki kuvaan</label>
@@ -110,6 +115,7 @@ export default function LisaaUrheilijaTiedot() {
               value={linkki_kuvaan}
               onChange={(event) => setLinkki_kuvaan(event.target.value)}
               error={virheet.linkki_kuvaan}
+              required
             />
 
             <label htmlFor="laji">Laji</label>
@@ -122,6 +128,7 @@ export default function LisaaUrheilijaTiedot() {
               value={laji}
               onChange={(event) => setLaji(event.target.value)}
               error={virheet.laji}
+              required
             />
 
             <label htmlFor="saavutukset">Saavutukset</label>
@@ -134,6 +141,7 @@ export default function LisaaUrheilijaTiedot() {
               value={saavutukset}
               onChange={(event) => setSaavutukset(event.target.value)}
               error={virheet.saavutukset}
+              required
             />
 
             <input

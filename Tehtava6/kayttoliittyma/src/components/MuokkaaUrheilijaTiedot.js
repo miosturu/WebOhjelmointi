@@ -97,6 +97,7 @@ const MuokkaaUrhelijaTiedot = () => {
               placeholder="Syötä etunimi"
               value={etunimi}
               onChange={onChangeEtunimi}
+              required
             />
 
             <label htmlFor="sukunimi">Sukunimi</label>
@@ -107,6 +108,7 @@ const MuokkaaUrhelijaTiedot = () => {
               placeholder="Syötä sukunimi"
               value={sukunimi}
               onChange={onChangeSukunimi}
+              required
             />
 
             <label htmlFor="kutsumanimi">Kutsumanimi</label>
@@ -117,6 +119,7 @@ const MuokkaaUrhelijaTiedot = () => {
               placeholder="Syötä kutsumanimi"
               value={kutsumanimi}
               onChange={onChangeKutsumanimi}
+              required
             />
 
             <label htmlFor="syntymavuosi">Syntymävuosi</label>
@@ -127,6 +130,7 @@ const MuokkaaUrhelijaTiedot = () => {
               placeholder="Syötä syntymävuosi"
               value={syntymavuosi}
               onChange={onChangeSyntymavuosi}
+              required
             />
 
             <label htmlFor="paino">Paino (kg)</label>
@@ -137,6 +141,7 @@ const MuokkaaUrhelijaTiedot = () => {
               placeholder="Syötä paino"
               value={paino}
               onChange={onChangePaino}
+              required
             />
 
             <label htmlFor="linkki_kuvaan">Linkki kuvaan</label>
@@ -147,6 +152,7 @@ const MuokkaaUrhelijaTiedot = () => {
               placeholder="Syötä linkki kuvaan"
               value={linkki_kuvaan}
               onChange={onChangeLinkki_kuvaan}
+              required
             />
 
             <label htmlFor="laji">Laji</label>
@@ -157,6 +163,7 @@ const MuokkaaUrhelijaTiedot = () => {
               placeholder="Syötä laji"
               value={laji}
               onChange={onChangeLaji}
+              required
             />
 
             <label htmlFor="saavutukset">Saavutukset</label>
@@ -167,12 +174,14 @@ const MuokkaaUrhelijaTiedot = () => {
               placeholder="Syötä saavutukset"
               value={saavutukset}
               onChange={onChangeSaavutukset}
+              required
             />
 
             <input
               type="submit"
               value="Muokkaa tiedot urheilijasta"
               className="btn btn-light btn-block"
+              routerlink="/"
             />
           </div>
         </form>
