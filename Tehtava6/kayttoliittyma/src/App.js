@@ -11,7 +11,7 @@ import {
 } from "react-router-dom";
 import Tietoa from "./components/pages/Tietoa";
 import MuokkaaUrhelijaTiedot from "./components/MuokkaaUrheilijaTiedot";
-import GlobalState from "./components/context/GlobalState";
+import GlobalState from "./context/GlobalState";
 
 function App() {
   return (

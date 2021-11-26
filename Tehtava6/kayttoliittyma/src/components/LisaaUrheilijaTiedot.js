@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState, useReducer, useContext } from "react";
-import urheilijatTiedotContext from "./context/UrheilijatTiedotContext";
+import urheilijatTiedotContext from "../context/UrheilijatTiedotContext";
 
 export default function LisaaUrheilijaTiedot() {
   let history = useNavigate();

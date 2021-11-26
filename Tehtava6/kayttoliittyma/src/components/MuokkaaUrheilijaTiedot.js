@@ -2,14 +2,14 @@ import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import urheilijatTiedotContext from "./context/UrheilijatTiedotContext";
+import urheilijatTiedotContext from "../context/UrheilijatTiedotContext";
 
 const MuokkaaUrhelijaTiedot = () => {
   const [etunimi, setEtunimi] = useState("");
   const [sukunimi, setSukunimi] = useState("");
   const [kutsumanimi, setKutsumanimi] = useState("");
   const [syntymavuosi, setSyntymavuosi] = useState("");
-  const [paino, setPaino] = useState("");
+  const [paino, setPaino] = useState(0);
   const [linkki_kuvaan, setLinkki_kuvaan] = useState("");
   const [laji, setLaji] = useState("");
   const [saavutukset, setSaavutukset] = useState("");

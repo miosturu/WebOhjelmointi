@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { useState, useContext } from "react";
-import urheilijatTiedotContext from "./context/UrheilijatTiedotContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useState, useContext } from "react";
+import urheilijatTiedotContext from "../context/UrheilijatTiedotContext";
+import { useNavigate } from "react-router-dom";
 
 const UrheilijaTiedot = (props) => {
   const UrheilijatTiedotContext = useContext(urheilijatTiedotContext);
@@ -42,7 +43,7 @@ const UrheilijaTiedot = (props) => {
         <div class="btn-group mr-2" role="group" aria-label="Second group">
           <button
             className="button_right"
-            onClick={this.onDeleteClick.bind(this, { id })}
+            onClick={onDeleteClick.bind(this, { id })}
           >
             Poista
           </button>
